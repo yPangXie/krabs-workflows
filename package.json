@@ -1,0 +1,24 @@
+{
+  "name": "krabs-workflow",
+  "version": "1.0.0",
+  "description": "workflow管理",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "qiniu",
+    "workflow",
+    "krabs"
+  ],
+  "author": "Mr.Krabs",
+  "license": "MIT",
+  "dependencies": {
+    "dustjs-linkedin": "^2.7.2",
+    "koa": "^1.2.0",
+    "koa-router": "^5.4.0",
+    "koa-session": "^3.3.1",
+    "koa-views": "^4.1.0",
+    "qiniu": "^6.1.11"
+  }
+}
