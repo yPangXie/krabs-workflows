@@ -1,5 +1,5 @@
 {> "home/layout" /}
 {<title}Workflow Home{/title}
 {<main}
-    <h1>Mr Krabs, it's the home page of workflow. Enjoy..</h1>
+    Building...
 {/main}

@@ -5,6 +5,20 @@
         <title>{+title/}</title>
     </head>
     <body>
-        {+main/}
+        <div class="ui container workflows">
+            <div class="ui menu inverted">
+                <div class="header item">
+                    Logo??
+                </div>
+                <a class="item">这个菜单项多数都叫Home</a>
+                <div class="right menu">
+                    <a class="item">登lù</a>
+                    <a class="item">救命</a>
+                </div>
+            </div>
+            <div class="ui column grid">
+                <div class="column">{+main/}</div>
+            </div>
+        </div>
     </body>
 </html>

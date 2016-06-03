@@ -14,10 +14,12 @@
   "author": "Mr.Krabs",
   "license": "MIT",
   "dependencies": {
+    "dustjs-helpers": "^1.7.3",
     "dustjs-linkedin": "^2.7.2",
     "koa": "^1.2.0",
     "koa-router": "^5.4.0",
     "koa-session": "^3.3.1",
+    "koa-static": "^2.0.0",
     "koa-views": "^4.1.0",
     "qiniu": "^6.1.11"
   }

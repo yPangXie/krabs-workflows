@@ -2,6 +2,7 @@
 
 const path = require('path');
 const koa = require('koa');
+const ctatic = require('koa-static');
 const router = require('koa-router')();
 const views = require('koa-views');
 const session = require('koa-session');
@@ -22,11 +23,15 @@ app.use(function *(next) {
     yield next;
 });
 
+/* 配置静态文件 */
+app.use(ctatic(path.resolve(`${__dirname}/htdocs`)));
+
 /* session模块 */
 app.keys = ['krabs-workflow'];
 app.use(session(app));
 
 /* view模块 */
+require('dustjs-helpers').config.whitespace = true;
 app.use(views(viewRoot, {
     cache: false,
     extension: 'dust'
