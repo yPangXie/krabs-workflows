@@ -1,10 +1,10 @@
 "use strict";
 
 const qiniu = require('qiniu');
-const qiniuConfig = require('./.config-qiqiu');
+const qiniuSecret = require('./.secret-qiqiu');
 
-qiniu.conf.ACCESS_KEY = qiniuConfig.ACCESS_KEY;
-qiniu.conf.SECRET_KEY = qiniuConfig.SECRET_KEY;
+qiniu.conf.ACCESS_KEY = qiniuSecret.ACCESS_KEY;
+qiniu.conf.SECRET_KEY = qiniuSecret.SECRET_KEY;
 
 /* 上传文件 */
 module.exports.upload = function *(options) {
@@ -16,7 +16,7 @@ module.exports.upload = function *(options) {
 
     //构建上传策略函数，设置回调的url以及需要回调给业务服务器的数据
     var putPolicy = new qiniu.rs.PutPolicy(`${bucket}:${uploadKey}`);
-    putPolicy.callbackUrl = qiniuConfig.callbackUrl;
+    putPolicy.callbackUrl = qiniuSecret.callbackUrl;
     putPolicy.callbackBody = 'filename=$(fname)&filesize=$(fsize)';
     //生成上传 Token
     let upToken = putPolicy.token();
