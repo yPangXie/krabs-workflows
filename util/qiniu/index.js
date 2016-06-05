@@ -1,7 +1,7 @@
 "use strict";
 
 const qiniu = require('qiniu');
-const qiniuSecret = require('./.secret-qiqiu');
+const qiniuSecret = require('./.secret-qiniu');
 
 qiniu.conf.ACCESS_KEY = qiniuSecret.ACCESS_KEY;
 qiniu.conf.SECRET_KEY = qiniuSecret.SECRET_KEY;
