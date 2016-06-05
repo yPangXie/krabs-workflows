@@ -9,10 +9,12 @@
 
 /* 各种controller */
 const home = require('./controller/home');
+const admin = require('./controller/admin');
 
 module.exports = function(router) {
     router.get('/', home.home);
-    router.get('/ok', function *() {
-        return this.body = "ok";
-    });
+
+    /* 管理后台页面 */
+    router.get('/admin', admin.dashboard);
+    router.get('/login', admin.login);
 }

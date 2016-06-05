@@ -1,0 +1,5 @@
+{> "common/layout" /}
+{<title}Workflow Admin - Dashboard{/title}
+{<main}
+    workflow admin home page...
+{/main}
