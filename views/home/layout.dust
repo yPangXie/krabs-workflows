@@ -2,20 +2,24 @@
 <html>
     <head>
         {> "common/header" /}
+        {+scripts /}
         <title>{+title/}</title>
     </head>
     <body>
-        <div class="ui container workflows">
-            <div class="ui menu inverted">
-                <div class="header item">
-                    Logo??
-                </div>
-                <a class="item">这个菜单项多数都叫Home</a>
-                <div class="right menu">
-                    <a class="item">登lù</a>
-                    <a class="item">救命</a>
-                </div>
+        <div class="ui fixed inverted main menu">
+            <div class="header item">
+                Logo??
             </div>
+            <a class="item">Home</a>
+            {#page.previous}<a class="icon item blue" href="/?page={page.previous}"><i class="left chevron icon"></i></a>{/page.previous}
+            <span class="item">{page.current} / {page.total}</span>
+            {#page.next}<a class="icon item" href="/?page={page.next}"><i class="right chevron icon"></i></a>{/page.next}
+            <div class="right menu">
+                <a class="item">登lù</a>
+                <a class="item">Help</a>
+            </div>
+        </div>
+        <div class="ui container workflows">
             <div class="ui column grid">
                 <div class="column">{+main/}</div>
             </div>

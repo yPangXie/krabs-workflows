@@ -1,1 +1,8 @@
 .workflows {padding-top: 50px;}
+.workflow-icon {text-align: center; padding: 5px 0 !important;}
+.workflow-icon img {width: 125px !important; height: 125px !important; display: inline-block !important;}
+.workflows-pagination {margin: 10px auto;}
+
+/* 通用样式重置 */
+.ui.card .meta, .ui.cards>.card .meta {margin-top: 0.5em;}
+.ui.horizontal.label, .ui.horizontal.labels .label {margin-bottom: 0.1em;}

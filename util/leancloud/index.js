@@ -1,6 +1,5 @@
 "use strict";
 
-const crypto = require('crypto');
 const AV = require('avoscloud-sdk');
 const leanCloudSecret = require('./.secret-leancloud');
 AV.initialize(leanCloudSecret.appId, leanCloudSecret.appKey);
@@ -40,7 +39,7 @@ module.exports.addUser = function *(options) {
 
 /* 获取用户信息 */
 module.exports.getUsers = function *(options) {
-    let query = AV.Query('Users');
+    let query = new AV.Query('Users');
     if(options) {
         /* 初始化Query */
         const emailQuery = new AV.Query('Users');
@@ -54,4 +53,39 @@ module.exports.getUsers = function *(options) {
 
     let findResult = yield query.find();
     return findResult;
+}
+
+/* 添加workflow数据 */
+module.exports.addWorkflow = function *(options, callback) {
+    let Workflows = AV.Object.extend('Workflows');
+    let WorkflowsObject = new Workflows();
+
+    for(let key in options) {
+        WorkflowsObject.set(key, options[key]);
+    }
+
+    WorkflowsObject.save().then(function (successResult) {
+        callback({"success": true});
+    }, function(error) {
+        console.log(err);
+        callback({"success": false});
+    });
+}
+
+/* 获取workflow */
+module.exports.getWorkflow = function *(page, size) {
+    let skip = ((+page || 1) - 1) * size;
+
+    let workflowsQuery = new AV.Query('Workflows');
+    workflowsQuery.limit(size);
+    workflowsQuery.skip(skip);
+    workflowsQuery.ascending('createdAt');
+
+    return workflowsQuery.find();
+}
+
+/* 获取总页数 */
+module.exports.getWorkflowTotal = function *() {
+    let workflowsTotalQuery = new AV.Query('Workflows');
+    return workflowsTotalQuery.count();
 }

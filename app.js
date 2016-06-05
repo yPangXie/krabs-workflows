@@ -30,6 +30,9 @@ app.use(ctatic(path.resolve(`${__dirname}/htdocs`)));
 app.keys = ['krabs-workflow'];
 app.use(session(app));
 
+/* 启用csrf */
+require('koa-csrf')(app);
+
 /* view模块 */
 require('dustjs-helpers').config.whitespace = true;
 app.use(views(viewRoot, {

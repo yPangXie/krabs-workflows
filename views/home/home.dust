@@ -1,5 +1,37 @@
 {> "home/layout" /}
 {<title}Workflow Home{/title}
 {<main}
-    Building...
+    <div class="ui four cards">
+        {#workflows}
+        <div class="card">
+            <a class="image workflow-icon" href="/{id}">
+                <img src="{attributes.icon_url}" />
+            </a>
+            <div class="content">
+                <a class="header" href="/{id}">{attributes.name}</a>
+                <div class="meta">
+                    {#attributes.tags}
+                        {#.}
+                        <a class="ui horizontal label" href="/tag/{.}">{.}</a>
+                        {/.}
+                    {/attributes.tags}
+                </div>
+                <div class="description">{attributes.description}</div>
+            </div>
+            <div class="extra content">
+                <a class="right floated friends" href="{attributes.download_url}">
+                    <i class="download icon"></i>
+                </a>
+                {#attributes.github}
+                <a class="right floated created" href="{attributes.github}" target="_blank">
+                    <i class="github square icon"></i>
+                </a>
+                {/attributes.github}
+                <a class="author" href="/user/{attributes.author}">
+                    <i class="user icon"></i>{attributes.author}
+                </a>
+            </div>
+        </div>
+        {/workflows}
+    </div>
 {/main}

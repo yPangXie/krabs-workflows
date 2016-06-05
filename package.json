@@ -15,13 +15,21 @@
   "license": "MIT",
   "dependencies": {
     "avoscloud-sdk": "^0.6.10",
+    "co-body": "^4.2.0",
     "dustjs-helpers": "^1.7.3",
     "dustjs-linkedin": "^2.7.2",
     "koa": "^1.2.0",
+    "koa-csrf": "^2.4.0",
     "koa-router": "^5.4.0",
     "koa-session": "^3.3.1",
     "koa-static": "^2.0.0",
     "koa-views": "^4.1.0",
     "qiniu": "^6.1.11"
+  },
+  "devDependencies": {
+    "cheerio": "^0.20.0",
+    "co": "^4.6.0",
+    "to-markdown": "^3.0.0",
+    "urllib": "^2.9.1"
   }
 }

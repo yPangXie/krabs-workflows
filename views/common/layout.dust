@@ -2,6 +2,7 @@
 <html>
     <head>
         {> "common/header" /}
+        {+scripts /}
         <title>{+title/}</title>
     </head>
     <body>
