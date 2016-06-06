@@ -13,9 +13,10 @@ module.exports = function *() {
     let screenshots = detailData.get('screenshots');
     let detailMD = detailData.get('detail');
     let tags = detailData.get('tags');
-    let tagsArray = tags.replace(/\s/, '').split(',');
+    let screenshotsArray = screenshots.replace(/\s/g, '').split(',');
+    let tagsArray = tags.replace(/\s/g, '').split(',');
 
-    detailData.set('screenshots', screenshots.split(','));
+    detailData.set('screenshots', screenshots.replace(/\s/g, '') ? screenshotsArray : null);
     detailData.set('tags', tags.replace(/\s/, '') ? tagsArray : null);
     detailData.set('detail', markdown.toHTML(detailMD));
 

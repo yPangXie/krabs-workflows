@@ -12,11 +12,14 @@
             </p>
             <div class="ui fitted divider"></div>
             <div class="workflow-detail">
-                {#attributes.screenshots}
-                    {#.}
-                        <img class="" src="{.}" />
-                    {/.}
-                {/attributes.screenshots}
+                {@ne key="{attributes.screenshots}" value=""}
+                    {#attributes.screenshots}
+                        {#.}
+                            <img class="workflow-screenshot" src="{.}" />
+                        {/.}
+                    {/attributes.screenshots}
+                    <div class="ui fitted divider"></div>
+                {/ne}
                 <p>{attributes.detail|s}</p>
             </div>
         </div>
@@ -42,8 +45,8 @@
                     </div>
                     {#attributes.github}
                     <div class="extra content">
-                        <a class="right floated created" href="{attributes.github}" target="_blank">
-                            {attributes.github} <i class="github square icon"></i>
+                        <a class="created" href="{attributes.github}" target="_blank">
+                            <i class="github square icon"></i> {attributes.github}
                         </a>
                     </div>
                     {/attributes.github}
