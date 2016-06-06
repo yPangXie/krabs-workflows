@@ -58,7 +58,7 @@
                     </div>
                     <div class="extra content">
                         <a class="author" href="/user/{attributes.author}">
-                            <img class="ui avatar image" src="http://www.semantic-ui-cn.com/images/wireframe/square-image.png"> {attributes.author}
+                            <img class="ui avatar image" src="{attributes.avatar}" alt="{attributes.author}"> {attributes.author}
                         </a>
                     </div>
                 </div>

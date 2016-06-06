@@ -97,3 +97,11 @@ module.exports.getWorkflowTotalCount = function *() {
     let workflowsTotalQuery = new AV.Query('Workflows');
     return workflowsTotalQuery.count();
 }
+
+/* 获取指定用户的所有数据 */
+module.exports.getWorkflowsByAuthor = function *(userName) {
+    let workflowsQuery = new AV.Query('Workflows');
+    workflowsQuery.equalTo('author', userName);
+
+    return workflowsQuery.find();
+}
