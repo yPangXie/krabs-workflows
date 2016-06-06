@@ -73,7 +73,7 @@ module.exports.addWorkflow = function *(options, callback) {
 }
 
 /* 获取workflow */
-module.exports.getWorkflow = function *(page, size) {
+module.exports.getWorkflows = function *(page, size) {
     let skip = ((+page || 1) - 1) * size;
 
     let workflowsQuery = new AV.Query('Workflows');
@@ -84,8 +84,16 @@ module.exports.getWorkflow = function *(page, size) {
     return workflowsQuery.find();
 }
 
+/* 获取某一个workflow的详细信息 */
+module.exports.getWorkflowDetail = function *(id) {
+    let workflowsQuery = new AV.Query('Workflows');
+    workflowsQuery.equalTo('objectId', id);
+
+    return workflowsQuery.first();
+}
+
 /* 获取总页数 */
-module.exports.getWorkflowTotal = function *() {
+module.exports.getWorkflowTotalCount = function *() {
     let workflowsTotalQuery = new AV.Query('Workflows');
     return workflowsTotalQuery.count();
 }

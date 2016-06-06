@@ -13,6 +13,7 @@ const admin = require('./controller/admin');
 
 module.exports = function(router) {
     router.get('/', home.home);
+    router.get('/:id', home.detail);
 
     /* 管理后台页面 */
     router.get('/admin', admin.dashboard);

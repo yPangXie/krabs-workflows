@@ -14,20 +14,19 @@ module.exports = function *() {
     //     "password": "testPassword",
     //     "email": "testEmail"
     // });
-    
+
     let size = 12;
     let page = this.query.page || 1;
     /* 获取当前页的数据 */
     let startTime = Date.now();
-    let resultList = yield leancloud.getWorkflow(page, 12);
+    let resultList = yield leancloud.getWorkflows(page, 12);
     resultList.forEach(function(item) {
         let tags = item.get('tags').split(',');
         item.set('tags', tags);
-        item.save();
     });
 
     /* 获取总数, 并计算分页 */
-    let total = yield leancloud.getWorkflowTotal();
+    let total = yield leancloud.getWorkflowTotalCount();
     let totalPage = Math.ceil(+total / size);
 
     return yield this.render('/home/home', {

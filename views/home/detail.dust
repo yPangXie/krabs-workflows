@@ -1,0 +1,66 @@
+{> "home/layout" /}
+{<title}Workflow Detail{/title}
+{<main}
+    {#detail}
+    <div class="ui grid column four">
+        <div class="twelve wide column">
+            <h1>{attributes.name}</h1>
+            <p class="workflow-description">
+                <i class="quote left icon"></i>
+                {attributes.description}
+                <i class="quote right icon"></i>
+            </p>
+            <div class="ui fitted divider"></div>
+            <div class="workflow-detail">
+                {#attributes.screenshots}
+                    {#.}
+                        <img class="" src="{.}" />
+                    {/.}
+                {/attributes.screenshots}
+                <p>{attributes.detail|s}</p>
+            </div>
+        </div>
+        <div class="four wide column">
+            <div class="ui cards">
+                <div class="card">
+                    <a class="image workflow-icon" href="/{id}">
+                        <img src="{attributes.icon_url}" />
+                    </a>
+                    {@ne key="{attributes.tags}" value=""}
+                    <div class="content">
+                        <div class="meta">
+                            {#attributes.tags}
+                                {#.}
+                                <a class="ui horizontal label" href="/tag/{.}"><i class="tag icon"></i> {.}</a>
+                                {/.}
+                            {/attributes.tags}
+                        </div>
+                    </div>
+                    {/ne}
+                    <div class="extra content">
+                        <strong>Bundle ID:</strong> {attributes.bundle_id}
+                    </div>
+                    {#attributes.github}
+                    <div class="extra content">
+                        <a class="right floated created" href="{attributes.github}" target="_blank">
+                            {attributes.github} <i class="github square icon"></i>
+                        </a>
+                    </div>
+                    {/attributes.github}
+                    <div class="extra content">
+                        <a class="ui blue fluid button" href="{attributes.download_url}">
+                            <i class="download icon"></i>
+                            Download
+                        </a>
+                    </div>
+                    <div class="extra content">
+                        <a class="author" href="/user/{attributes.author}">
+                            <img class="ui avatar image" src="http://www.semantic-ui-cn.com/images/wireframe/square-image.png"> {attributes.author}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/detail}
+{/main}

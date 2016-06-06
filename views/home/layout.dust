@@ -10,19 +10,17 @@
             <div class="header item">
                 Logo??
             </div>
-            <a class="item">Home</a>
-            {#page.previous}<a class="icon item blue" href="/?page={page.previous}"><i class="left chevron icon"></i></a>{/page.previous}
-            <span class="item">{page.current} / {page.total}</span>
-            {#page.next}<a class="icon item" href="/?page={page.next}"><i class="right chevron icon"></i></a>{/page.next}
+            <a class="item" href="/">Home</a>
+            {@ne key="{hidePagination}" value="true"}
+                {#page.previous}<a class="icon item blue" href="/?page={page.previous}"><i class="left chevron icon"></i></a>{/page.previous}
+                <span class="item">{page.current} / {page.total}</span>
+                {#page.next}<a class="icon item" href="/?page={page.next}"><i class="right chevron icon"></i></a>{/page.next}
+            {/ne}
             <div class="right menu">
                 <a class="item">登lù</a>
                 <a class="item">Help</a>
             </div>
         </div>
-        <div class="ui container workflows">
-            <div class="ui column grid">
-                <div class="column">{+main/}</div>
-            </div>
-        </div>
+        <div class="ui container workflows">{+main/}</div>
     </body>
 </html>

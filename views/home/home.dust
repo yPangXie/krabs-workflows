@@ -1,7 +1,7 @@
 {> "home/layout" /}
 {<title}Workflow Home{/title}
 {<main}
-    <div class="ui four cards">
+    <div class="ui grid column four cards">
         {#workflows}
         <div class="card">
             <a class="image workflow-icon" href="/{id}">
