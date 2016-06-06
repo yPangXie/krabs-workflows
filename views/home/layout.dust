@@ -7,9 +7,7 @@
     </head>
     <body>
         <div class="ui fixed inverted main menu">
-            <div class="header item">
-                Logo??
-            </div>
+            <div class="header item">wǒcào</div>
             <a class="item" href="/">Home</a>
             {@ne key="{hidePagination}" value="true"}
                 {#page.previous}<a class="icon item blue" href="/?page={page.previous}"><i class="left chevron icon"></i></a>{/page.previous}

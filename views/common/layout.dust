@@ -8,9 +8,7 @@
     <body>
         <div class="ui container workflows">
             <div class="ui menu inverted">
-                <div class="header item">
-                    Logo??
-                </div>
+                <div class="header item">wǒcào</div>
                 <a class="item">这个菜单项多数都叫Home</a>
                 <div class="right menu">
                     <a class="item">登lù</a>
