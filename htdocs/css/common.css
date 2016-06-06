@@ -1,6 +1,6 @@
 .workflows {padding-top: 50px;}
 .workflow-icon {text-align: center; padding: 5px 0 !important;}
-.workflow-icon img {width: 125px !important; height: 125px !important; display: inline-block !important;}
+.workflow-icon img {width: 80px !important; height: 80px !important; display: inline-block !important;}
 .workflows-pagination {margin: 10px auto;}
 
 /* 通用样式重置 */
