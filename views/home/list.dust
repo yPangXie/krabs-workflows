@@ -1,0 +1,58 @@
+{> "home/layout" /}
+{<title}Workflow search result list{/title}
+{<main}
+    {@ne key="{empty}" value="false"}
+        <div class="twelve wide column">
+            <div class="ui ignored info message">
+                <i class="info icon"></i>
+                {@select key="{type}"}
+                    {@eq value="tag"}
+
+                        Nasha机智的发现, 阁下在尝试查看所有包含 <span class="ui purple horizontal label">{filterData}</span> 这个tag的workflow, 事儿已经办妥了..
+                    {/eq}
+                    {@eq value="user"}
+                        用户 <span class="ui purple horizontal label">{filterData}</span> 提交的所有的workflows都在这儿了. Enjoy..
+                    {/eq}
+                {/select}
+            </div>
+
+            {#list}
+            <div class="ui items">
+                <div class="item">
+                    <a class="ui tiny image" href="/{id}">
+                        <img src="{attributes.icon_url}">
+                    </a>
+                    <div class="content">
+                        <a class="header" href="/{id}">{attributes.name}</a>
+                        <div class="description">
+                            {attributes.description}
+                        </div>
+                        <div class="extra">
+                            {@select key="{type}"}
+                                {@eq value="tag"}
+                                    <a class="author" href="/user/{attributes.author}">
+                                        <i class="user icon"></i>{attributes.author}
+                                    </a>
+                                {/eq}
+                                {@eq value="user"}
+                                    {#attributes.tags}
+                                        {#.}
+                                        <a class="ui label" href="/tag/{.}">{.}</a>
+                                        {/.}
+                                    {/attributes.tags}
+                                {/eq}
+                            {/select}
+                        </div>
+                    </div>
+                </div>
+                <div class="ui inverted divider"></div>
+            </div>
+            {/list}
+        </div>
+    {:else}
+        <div class="ui negative message">
+            <i class="close icon"></i>
+            未查到任何符合条件的数据, 要不, 你再试试??
+        </div>
+    {/ne}
+{/main}

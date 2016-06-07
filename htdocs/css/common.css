@@ -5,6 +5,7 @@
 .workflow-detail {margin-top: 10px;}
 .workflow-description {color: #999;}
 .workflow-screenshot {max-width: 200px;}
+.workflow-word-highlight {}
 
 /* 通用样式重置 */
 .ui.card .meta, .ui.cards>.card .meta {margin-top: 0.5em;}

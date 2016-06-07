@@ -105,3 +105,19 @@ module.exports.getWorkflowsByAuthor = function *(userName) {
 
     return workflowsQuery.find();
 }
+
+/* 模糊查询: 查询tag */
+module.exports.getWorkflowsLikeTag = function *(tag) {
+    var workflowsQuery = new AV.Query('Workflows');
+    workflowsQuery.contains('tags', tag || '');
+
+    return workflowsQuery.find();
+}
+
+/* 模糊查询: 查询用户创建的workflow */
+module.exports.getWorkflowsLikeAuthor = function *(author) {
+    var workflowsQuery = new AV.Query('Workflows');
+    workflowsQuery.contains('author', author || '');
+
+    return workflowsQuery.find();
+}

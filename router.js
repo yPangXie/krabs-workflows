@@ -14,6 +14,8 @@ const admin = require('./controller/admin');
 module.exports = function(router) {
     router.get('/', home.home);
     router.get('/:id', home.detail);
+    router.get('/tag/:tag', home.tag);
+    router.get('/user/:user', home.user);
 
     /* 管理后台页面 */
     router.get('/admin', admin.dashboard);
