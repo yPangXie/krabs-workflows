@@ -79,7 +79,7 @@ module.exports.getWorkflows = function *(page, size) {
     let workflowsQuery = new AV.Query('Workflows');
     workflowsQuery.limit(size);
     workflowsQuery.skip(skip);
-    workflowsQuery.ascending('createdAt');
+    workflowsQuery.descending('updatedAt');
 
     return workflowsQuery.find();
 }
