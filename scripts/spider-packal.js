@@ -16,21 +16,39 @@ function getPageData(url) {
             return getPageData(workflowsURLList.shift());
         }
         let $ = cheerio.load(new Buffer(result.data).toString());
-        let author = $('.user-picture').closest('td').prev().text().trim() || '';
+        let tags = [];
+        let screenshots = [];
+        $('.field-tags .field-item').each(function() {
+            tags.push($(this).text().trim() || '');
+        });
+        $('.field-screenshots').each(function() {
+            screenshots.push($(this).find('img').attr('src') || '');
+        });
         let workflowData = {
-            "avatar": $('.user-picture img').attr('src') || ''
+            "author": $('.user-picture').closest('td').prev().text().trim() || "",
+            "description": $('.field-short-description').text().trim() || "",
+            "tags": tags.join(','),
+            "github": $('.field-github-url a').attr('href') || "",
+            "name": $('#page-title').text().trim() || "",
+            "bundle_id": $('.field-bundle-id').text().trim() || "",
+            "screenshots": screenshots.join(','),
+            "icon_url": $('.field-icon img').attr('src') || "",
+            "detail": toMarkdown($('.field-body').html() || ""),
+            "download_url": $('.wf-download-link').attr('href') || "",
+            "avatar": $('.user-picture img').attr('src') || ""
         };
 
-        let resultList = yield leanCloudSecret.getWorkflowsByAuthor(author);
-        if(resultList && resultList.length) {
-            resultList.forEach(item => {
-                item.set('avatar', $('.user-picture img').attr('src') || '');
-                item.save();
-            });
-        }
-        console.log(`SUCCESS: ${url}`);
-        getPageData(workflowsURLList.shift());
+        let resultList = yield leanCloudSecret.addWorkflow(workflowData, function(result) {
+            if(result.success) console.log(`SUCCESS: ${url}`);
+            else console.log(`FAILED: ${url}`);
+
+            getPageData(workflowsURLList.shift());
+        });
     });
 }
 
-getPageData(workflowsURLList.shift());
+if(!workflowsURLList || workflowsURLList.length == 0) {
+    console.log('未配置需要抓取的数据.');
+} else {
+    getPageData(workflowsURLList.shift());
+}

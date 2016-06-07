@@ -7,7 +7,6 @@
                 <i class="info icon"></i>
                 {@select key="{type}"}
                     {@eq value="tag"}
-
                         Nasha机智的发现, 阁下在尝试查看所有包含 <span class="ui purple horizontal label">{filterData}</span> 这个tag的workflow, 事儿已经办妥了..
                     {/eq}
                     {@eq value="user"}
